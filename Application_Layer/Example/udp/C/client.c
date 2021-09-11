@@ -4,15 +4,15 @@
 #include<unistd.h>
 #include<string.h>
 
-#define PORT 5942
+#define PORT 8080
 #define BUFFER_LENGTH 1024
 
 int main(int argc, char *argv[]) {
-	int sock = 0, valread;
+	int sock = 0;
 	struct sockaddr_in serv_addr;
 	char *hello = "hello from the client";
 	char buffer[BUFFER_LENGTH] = {0};
-	if ((sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+	if ((sock = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
 		printf("\n Socket creation error \n");
 		return -1;
 	}
